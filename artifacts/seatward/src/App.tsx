@@ -169,19 +169,7 @@ function PlayerPage() {
     <main className="player-shell">
       <section className="desktop-area" aria-label="Player desktop">
         <div className="wallpaper-art" aria-hidden="true">
-          <svg viewBox="0 0 1200 850" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <defs>
-              <linearGradient id="ribbon-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#59d2ff" /><stop offset=".32" stopColor="#238de8" /><stop offset=".66" stopColor="#1559c4" /><stop offset="1" stopColor="#72cfff" /></linearGradient>
-              <linearGradient id="ribbon-light" x1="0" y1="0" x2="1" y2=".7"><stop offset="0" stopColor="#a6ebff" stopOpacity=".86" /><stop offset=".5" stopColor="#54b9f7" stopOpacity=".5" /><stop offset="1" stopColor="#1f70dd" stopOpacity=".08" /></linearGradient>
-              <linearGradient id="ribbon-shadow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#083b98" stopOpacity=".08" /><stop offset=".55" stopColor="#071b67" stopOpacity=".74" /><stop offset="1" stopColor="#073b96" stopOpacity=".12" /></linearGradient>
-              <radialGradient id="wallpaper-blue"><stop stopColor="#2478d4" /><stop offset="1" stopColor="#073778" /></radialGradient>
-            </defs>
-            <rect width="1200" height="850" fill="url(#wallpaper-blue)" />
-            <path d="M 270 -100 C 370 70 520 130 740 150 C 1010 176 1170 305 1170 445 C 1170 584 1018 676 820 660 C 610 644 502 734 500 930" fill="none" stroke="url(#ribbon-blue)" strokeWidth="168" strokeLinecap="round" />
-            <path d="M 270 -100 C 370 70 520 130 740 150 C 1010 176 1170 305 1170 445 C 1170 584 1018 676 820 660 C 610 644 502 734 500 930" fill="none" stroke="url(#ribbon-light)" strokeWidth="70" strokeLinecap="round" />
-            <path d="M 600 -80 C 535 118 690 250 907 317 C 1086 373 1115 479 1005 565 C 880 662 678 561 494 536 C 300 509 210 603 188 850" fill="none" stroke="url(#ribbon-shadow)" strokeWidth="122" strokeLinecap="round" />
-            <path d="M -90 378 C 123 256 360 288 544 418 C 710 536 824 572 1030 456 C 1175 374 1267 349 1348 370" fill="none" stroke="url(#ribbon-light)" strokeWidth="42" strokeLinecap="round" opacity=".48" />
-          </svg>
+          <img src="/windows-11-wallpaper.png" alt="" />
         </div>
         <div className="desktop-topline"><span className="desktop-seatward"><span className="seatward-mini"><i /><i /><i /><i /></span> Seatward preview</span><span className="desktop-demo-tag">LOCAL DEMO</span></div>
         <nav className="desktop-icons" aria-label="Desktop shortcuts">

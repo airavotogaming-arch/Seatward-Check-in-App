@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -79,42 +79,42 @@
   --elevate-1: rgba(0, 0, 0, 0.03);
   --elevate-2: rgba(0, 0, 0, 0.08);
 
-  --background: 43 29% 88%;
-  --foreground: 35 17% 9%;
-  --border: 40 12% 72%;
-  --card: 43 29% 88%;
-  --card-foreground: 35 17% 9%;
-  --card-border: 40 12% 72%;
-  --sidebar: 43 29% 88%;
-  --sidebar-foreground: 35 17% 9%;
-  --sidebar-border: 40 12% 72%;
-  --sidebar-primary: 10 77% 48%;
-  --sidebar-primary-foreground: 43 29% 88%;
-  --sidebar-accent: 40 18% 82%;
-  --sidebar-accent-foreground: 35 17% 9%;
-  --sidebar-ring: 10 77% 48%;
-  --popover: 43 29% 88%;
-  --popover-foreground: 35 17% 9%;
-  --popover-border: 40 12% 72%;
-  --primary: 35 17% 9%;
-  --primary-foreground: 43 29% 88%;
-  --secondary: 40 18% 82%;
-  --secondary-foreground: 35 17% 9%;
-  --muted: 40 18% 82%;
-  --muted-foreground: 35 7% 42%;
-  --accent: 10 77% 48%;
-  --accent-foreground: 43 29% 88%;
-  --destructive: 10 77% 48%;
-  --destructive-foreground: 43 29% 88%;
-  --input: 40 12% 72%;
-  --ring: 10 77% 48%;
+  --background: 240 8% 8%;
+  --foreground: 0 0% 96%;
+  --border: 252 10% 25%;
+  --card: 240 8% 11%;
+  --card-foreground: 0 0% 96%;
+  --card-border: 252 10% 25%;
+  --sidebar: 240 8% 8%;
+  --sidebar-foreground: 0 0% 96%;
+  --sidebar-border: 252 10% 25%;
+  --sidebar-primary: 260 58% 70%;
+  --sidebar-primary-foreground: 240 8% 8%;
+  --sidebar-accent: 252 10% 17%;
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-ring: 260 58% 70%;
+  --popover: 240 8% 11%;
+  --popover-foreground: 0 0% 96%;
+  --popover-border: 252 10% 25%;
+  --primary: 0 0% 96%;
+  --primary-foreground: 240 8% 8%;
+  --secondary: 252 10% 17%;
+  --secondary-foreground: 0 0% 96%;
+  --muted: 252 10% 17%;
+  --muted-foreground: 252 7% 65%;
+  --accent: 260 58% 70%;
+  --accent-foreground: 240 8% 8%;
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 96%;
+  --input: 252 10% 25%;
+  --ring: 260 58% 70%;
   --chart-1: 10 77% 48%;
   --chart-2: 35 17% 9%;
   --chart-3: 40 18% 70%;
   --chart-4: 26 35% 55%;
   --chart-5: 44 20% 48%;
 
-  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-sans: 'Manrope', sans-serif;
   --app-font-serif: Georgia, serif;
   --app-font-mono: 'DM Mono', monospace;
   --radius: 0.5rem; /* 8px */
@@ -201,37 +201,37 @@
   --elevate-1: rgba(255, 255, 255, 0.04);
   --elevate-2: rgba(255, 255, 255, 0.09);
 
-  --background: 43 29% 88%;
-  --foreground: 35 17% 9%;
-  --border: 40 12% 72%;
-  --card: 43 29% 88%;
-  --card-foreground: 35 17% 9%;
-  --card-border: 40 12% 72%;
-  --sidebar: 43 29% 88%;
-  --sidebar-foreground: 35 17% 9%;
-  --sidebar-border: 40 12% 72%;
-  --sidebar-primary: 10 77% 48%;
-  --sidebar-primary-foreground: 43 29% 88%;
-  --sidebar-accent: 40 18% 82%;
-  --sidebar-accent-foreground: 35 17% 9%;
-  --sidebar-ring: 10 77% 48%;
-  --popover: 43 29% 88%;
-  --popover-foreground: 35 17% 9%;
-  --popover-border: 40 12% 72%;
-  --primary: 35 17% 9%;
-  --primary-foreground: 43 29% 88%;
-  --secondary: 40 18% 82%;
-  --secondary-foreground: 35 17% 9%;
-  --muted: 40 18% 82%;
-  --muted-foreground: 35 7% 62%;
-  --accent: 10 77% 48%;
-  --accent-foreground: 43 29% 88%;
-  --destructive: 10 77% 48%;
-  --destructive-foreground: 43 29% 88%;
+  --background: 240 8% 8%;
+  --foreground: 0 0% 96%;
+  --border: 252 10% 25%;
+  --card: 240 8% 11%;
+  --card-foreground: 0 0% 96%;
+  --card-border: 252 10% 25%;
+  --sidebar: 240 8% 8%;
+  --sidebar-foreground: 0 0% 96%;
+  --sidebar-border: 252 10% 25%;
+  --sidebar-primary: 260 58% 70%;
+  --sidebar-primary-foreground: 240 8% 8%;
+  --sidebar-accent: 252 10% 17%;
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-ring: 260 58% 70%;
+  --popover: 240 8% 11%;
+  --popover-foreground: 0 0% 96%;
+  --popover-border: 252 10% 25%;
+  --primary: 0 0% 96%;
+  --primary-foreground: 240 8% 8%;
+  --secondary: 252 10% 17%;
+  --secondary-foreground: 0 0% 96%;
+  --muted: 252 10% 17%;
+  --muted-foreground: 252 7% 65%;
+  --accent: 260 58% 70%;
+  --accent-foreground: 240 8% 8%;
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 96%;
 
   /* Used as the border around inputs. Dark mode: Should be a border that is light enough to have high contrast when rendered on a --card background. More contrast than standard --border */
-  --input: 40 12% 72%;
-  --ring: 10 77% 48%;
+  --input: 252 10% 25%;
+  --ring: 260 58% 70%;
   --chart-1: 10 77% 48%;
   --chart-2: 35 17% 9%;
   --chart-3: 40 18% 70%;
@@ -973,4 +973,351 @@ button:focus-visible, select:focus-visible { outline:2px solid #d64a2c; outline-
 }
 @media (prefers-reduced-motion:reduce) {
   .desktop-shortcut { transition:none; }
+}
+
+/* Seatward / Obsidian glass system */
+:root {
+  color-scheme: dark;
+  --paper: #111115;
+  --ink: #f4f2f7;
+  --ember: #a78bfa;
+  --rule: rgba(228, 224, 241, .14);
+  --mono: 'DM Mono', monospace;
+  --seatward-glass: rgba(15, 15, 22, .84);
+}
+body {
+  background: #111115;
+  color: #f4f2f7;
+  font-family: 'Manrope', sans-serif;
+}
+button, input, select { font: inherit; }
+button:focus-visible, input:focus-visible, select:focus-visible, a:focus-visible {
+  outline-color: #b49aff;
+}
+.seatward-shell {
+  background:
+    radial-gradient(ellipse at 18% 30%, rgba(97, 71, 155, .18), transparent 34%),
+    radial-gradient(ellipse at 88% 85%, rgba(73, 63, 112, .12), transparent 32%),
+    #111115;
+  color: #f4f2f7;
+}
+.session-shell {
+  background-image:
+    radial-gradient(ellipse at 18% 24%, rgba(118, 91, 188, .16), transparent 36%),
+    radial-gradient(ellipse at 86% 85%, rgba(74, 66, 107, .12), transparent 34%);
+}
+.brand { color: #f7f5fa; font-family: 'Manrope', sans-serif; }
+.brand-dot { color: #ad91ff; }
+.brand-mark i { background: #eeeaf5; }
+.brand-mark i:last-child { background: #a78bfa; }
+.session-brand { left: clamp(26px, 5vw, 76px); top: 38px; }
+.session-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 390px);
+  column-gap: clamp(50px, 10vw, 150px);
+  padding: 142px clamp(26px, 8vw, 120px) 48px;
+}
+.venue-note { max-width: 620px; margin-bottom: 4%; }
+.welcome-line {
+  color: #d1c2ff;
+  border-color: rgba(216, 207, 236, .2);
+  padding: 20px 0;
+  font-size: clamp(21px, 2.5vw, 32px);
+  line-height: 1.32;
+  letter-spacing: -1.2px;
+}
+.venue-item { border-color: rgba(216, 207, 236, .15); padding: 16px 0; }
+.venue-number { color: #a78bfa; }
+.venue-item strong { color: #f1eef7; font-size: 14px; }
+.venue-item p { color: #9d98a8; font: 10px/1.7 var(--mono); }
+.back-link {
+  color: #b4a9c8;
+  font: 9px var(--mono);
+}
+.panel-card {
+  border: 1px solid rgba(222, 215, 241, .19);
+  background: rgba(23, 22, 30, .72);
+  box-shadow: 0 22px 80px rgba(0, 0, 0, .28), inset 0 1px rgba(255,255,255,.04);
+  backdrop-filter: blur(24px);
+}
+.panel-card::before { border-color: #ad91ff; }
+.panel-card::after { border-color: #ad91ff; }
+.card-meta {
+  border-color: rgba(222, 215, 241, .13);
+  color: #9b95a9;
+}
+.signal-dots i { background: #5f5a69; }
+.signal-dots i:first-child { background: #a78bfa; }
+.card-content { padding: 32px 30px 29px; }
+.card-content h1 { color: #f5f3f8; font-size: 27px; letter-spacing: -1.3px; }
+.switcher { border-color: rgba(222, 215, 241, .18); }
+.switcher button { color: #a5a0ae; cursor: pointer; }
+.switcher button[aria-pressed="true"] {
+  color: #f7f4ff;
+  background: rgba(151, 119, 222, .2);
+  box-shadow: inset 0 -2px #ad91ff;
+}
+.field label { color: #aaa4b4; }
+.field input {
+  color: #f5f3f8;
+  border: 1px solid rgba(223, 216, 239, .22);
+  border-radius: 5px;
+  background: rgba(9, 9, 13, .45);
+  height: 42px;
+  font: 11px var(--mono);
+}
+.field input::placeholder { color: #777282; }
+.field input:focus { border-color: #a78bfa; background: rgba(12, 11, 17, .8); }
+.field input[aria-invalid="true"] { border-color: #ef7c92; }
+.field-error { color: #ff9cab; }
+.submit-button {
+  min-height: 44px;
+  border: 1px solid rgba(199, 180, 255, .45);
+  border-radius: 5px;
+  background: #eeeafa;
+  color: #201a2d;
+  font: 700 9px var(--mono);
+}
+.submit-button:hover { background: #c6b4ff; }
+.local-message {
+  color: #e8e3f1;
+  border-color: #a78bfa;
+  background: rgba(167, 139, 250, .1);
+}
+.activate-layout {
+  grid-template-columns: minmax(230px, 34%) 1fr;
+  background:
+    radial-gradient(ellipse at 73% 42%, rgba(119, 91, 188, .12), transparent 39%),
+    #111115;
+}
+.activate-side {
+  min-height: 100dvh;
+  padding: 48px clamp(24px, 5vw, 68px);
+  background:
+    linear-gradient(150deg, rgba(167,139,250,.07), transparent 42%),
+    #15141a;
+  border-right: 1px solid rgba(227, 220, 241, .11);
+}
+.activate-side .brand { color: #f7f5fa; }
+.side-index { color: rgba(220, 208, 253, .035); }
+.activate-main {
+  background: transparent;
+  padding: 42px;
+}
+.activate-card { max-width: 410px; }
+.activate-card .card-content { padding: 38px 34px 32px; }
+.intro-copy, .helper-copy { color: #a49eaf; font: 10px/1.7 var(--mono); }
+.activation-input {
+  color: #c3adff !important;
+  background: rgba(8, 8, 13, .54) !important;
+  letter-spacing: 9px;
+}
+.activate-card .back-link { color: #bcb4cc; }
+.not-found { background: #111115; color: #f4f2f7; }
+.not-found a { color: #c3adff; }
+
+/* The supplied Windows desktop is the actual wallpaper asset; Seatward controls float above it. */
+.player-shell {
+  grid-template-columns: minmax(0, 1fr) minmax(345px, 370px);
+  background: #0b0b10;
+  color: #f2eff8;
+}
+.desktop-area {
+  color: #f5f4fa;
+  background: #172f58;
+  padding: 24px 3.6% 76px;
+}
+.desktop-area::after {
+  z-index: 0;
+  opacity: .1;
+  background-image: linear-gradient(90deg, rgba(7, 10, 24, .24), transparent 60%);
+  mask-image: none;
+}
+.wallpaper-art { z-index: -1; }
+.wallpaper-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.desktop-topline { z-index: 2; }
+.desktop-seatward { color: #fff; font-weight: 700; }
+.seatward-mini i:last-child { background: #ad91ff; }
+.desktop-demo-tag {
+  color: rgba(249, 247, 255, .78);
+  border-color: rgba(255,255,255,.34);
+  border-radius: 4px;
+  background: rgba(10, 15, 30, .24);
+  backdrop-filter: blur(12px);
+}
+.desktop-icons { margin-top: 38px; }
+.desktop-shortcut { border-radius: 5px; }
+.desktop-shortcut:hover,.desktop-shortcut:focus-visible {
+  background: rgba(216, 205, 249, .2);
+  border-color: rgba(255,255,255,.3);
+}
+.desktop-app-icon { filter: drop-shadow(0 2px 5px rgba(4, 10, 26, .5)); }
+.desktop-taskbar {
+  z-index: 3;
+  bottom: 7px;
+}
+.taskbar-dock {
+  background: rgba(221, 229, 244, .75);
+  border-color: rgba(255,255,255,.47);
+  box-shadow: 0 6px 30px rgba(9, 18, 42, .24);
+}
+.pin-seatward i:last-child { background: #8062ca; }
+.taskbar-clock {
+  background: rgba(24, 30, 48, .66);
+  color: #f2eefb;
+  border-color: rgba(255,255,255,.2);
+}
+.taskbar-clock strong,.taskbar-clock span { color: #f2eefb; }
+.player-panel {
+  position: relative;
+  z-index: 5;
+  min-height: 100dvh;
+  padding: 19px 21px 16px;
+  color: #f2eff8;
+  background:
+    radial-gradient(ellipse at 96% 1%, rgba(139, 107, 214, .13), transparent 31%),
+    linear-gradient(160deg, rgba(18, 18, 26, .94), rgba(11, 11, 17, .91));
+  border-left: 1px solid rgba(220, 212, 242, .22);
+  box-shadow: -18px 0 58px rgba(4, 6, 16, .22), inset 1px 0 rgba(255,255,255,.035);
+  backdrop-filter: blur(24px);
+}
+.player-panel-head { border-color: rgba(222, 215, 241, .15); padding-bottom: 14px; }
+.panel-brand { color: #f7f5fa; }
+.panel-brand .brand-dot { color: #ad91ff; }
+.live-indicator { color: #b1aabf; }
+.live-indicator i { background: #ad91ff; box-shadow: 0 0 9px rgba(173,145,255,.5); }
+.session-status { border-color: rgba(222, 215, 241, .15); padding: 15px 0 13px; }
+.status-label,.identity-label,.section-heading,.identity-terminal { color: #aaa4b4; }
+.countdown { color: #faf9fc; font-size: 40px; letter-spacing: -2.5px; }
+.session-progress { background: rgba(222,215,241,.16); height: 3px; }
+.session-progress i { background: #ad91ff; }
+.session-caption { color: #8f8999; }
+.player-identity { border-color: rgba(222, 215, 241, .15); padding: 13px 0; }
+.player-identity strong { color: #f5f2fa; }
+.identity-terminal b { color: #cbbaff; }
+.quick-actions { padding: 13px 0 9px; }
+.small-count { color: #8e879b; }
+.panel-action {
+  color: #e9e6ef;
+  border-color: rgba(222, 215, 241, .12);
+  min-height: 32px;
+}
+.panel-action:hover span:nth-child(2) { color: #cbbaff; }
+.action-mark { color: #a69cb8; }
+.panel-action b { color: #b69cff; }
+.promo-card {
+  grid-template-columns: 61px 1fr;
+  min-height: 112px;
+  border: 1px solid rgba(225, 215, 247, .17);
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(107, 83, 155, .28), rgba(28, 26, 37, .85));
+  color: #f3f0f8;
+}
+.promo-art { background: linear-gradient(150deg, rgba(163,137,225,.46), rgba(48,39,66,.7)); }
+.promo-art span { color: rgba(245,241,255,.84); }
+.promo-kicker { color: #c4b5e9; }
+.promo-copy p { color: #b1aabb; }
+.promo-cta { color: #ded1ff; }
+.player-footer { color: #8d8798; border-color: rgba(222,215,241,.12); }
+.end-session { color: #d0c6e5; }
+.player-overlay {
+  background: rgba(7, 7, 12, .73);
+  backdrop-filter: blur(12px);
+}
+.action-window {
+  color: #f3f0f8;
+  background: rgba(23, 22, 30, .97);
+  border: 1px solid rgba(218, 207, 244, .23);
+  border-radius: 8px;
+  box-shadow: 0 24px 90px rgba(0,0,0,.6), 0 0 60px rgba(114,87,174,.1);
+}
+.window-titlebar {
+  background: rgba(14, 13, 20, .96);
+  color: #e9e3f2;
+  border-bottom: 1px solid rgba(224,216,241,.12);
+}
+.window-mark i { background: #ede9f5; }
+.window-mark i:last-child { background: #ad91ff; }
+.window-titlebar button { color: #d4ccdf; }
+.window-titlebar button:hover { color: #c3adff; }
+.window-content .eyebrow { color: #baa5f0; }
+.window-content h2 { color: #f5f2fa; }
+.window-intro { color: #aaa4b3; }
+.game-row,.food-row { border-color: rgba(222,215,241,.15); }
+.game-number,.demo-label { color: #ae9bd5; }
+.game-row small,.food-row small { color: #9891a2; }
+.food-buy b { color: #e1d8f3; }
+.food-buy button,.window-primary {
+  color: #241d32;
+  background: #d9ccfb;
+  border: 1px solid #c9b6fa;
+  border-radius: 4px;
+}
+.food-buy button:hover,.window-primary:hover { background: #c2aaff; }
+.sample-order,.confirmation-box,.promo-detail {
+  border-color: rgba(222,215,241,.15);
+  background: rgba(255,255,255,.035);
+  color: #e9e4f0;
+}
+.sample-order p,.sample-order small,.confirmation-box p { color: #aaa4b3; }
+.confirmation-symbol { color: #bca5f6; border-color: #9076ca; }
+.terminal-select-label { color: #aaa4b4; }
+.window-content select {
+  color: #f4f1f8;
+  background: rgba(8,8,13,.7);
+  border-color: rgba(222,215,241,.25);
+  border-radius: 4px;
+}
+.inline-confirm { color: #d7c9f4; }
+.promo-detail span { color: #a8a0b4; }
+.promo-detail strong { color: #eeeaf5; }
+
+@media (max-width: 900px) {
+  .session-layout { column-gap: 5vw; padding-left: 6vw; padding-right: 6vw; }
+  .player-shell { grid-template-columns: minmax(0, 1fr) minmax(320px, 350px); }
+  .player-panel { padding-left: 17px; padding-right: 17px; }
+}
+@media (max-width: 760px) {
+  .session-brand { left: 7%; top: 28px; }
+  .session-brand .brand-mark { width: 35px; height: 35px; gap: 5px; }
+  .session-brand .brand-mark i:last-child { height: 16px; }
+  .session-brand.brand { font-size: 36px; letter-spacing: -2px; gap: 10px; }
+  .session-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 122px 7% 32px;
+  }
+  .session-card { grid-row: 1; }
+  .venue-note { grid-row: 2; }
+  .activate-layout { grid-template-columns: 1fr; }
+  .activate-side { min-height: auto; height: 96px; padding: 30px 7%; }
+  .activate-main { min-height: calc(100dvh - 96px); padding: 34px 7%; }
+  .player-shell { display: flex; flex-direction: column; }
+  .desktop-area { min-height: 390px; }
+  .player-panel {
+    min-height: auto;
+    border-left: 0;
+    border-top: 1px solid rgba(220,212,242,.22);
+    padding: 20px clamp(18px, 5vw, 30px);
+  }
+  .player-footer { margin-top: 20px; }
+}
+@media (max-width: 460px) {
+  .desktop-area { min-height: 340px; }
+  .desktop-icons { margin-top: 23px; gap: 0; }
+  .desktop-shortcut { width: 70px; min-height: 68px; }
+  .desktop-app-icon { transform: scale(.86); }
+  .desktop-taskbar { width: calc(100% - 10px); bottom: 6px; }
+  .taskbar-dock { gap: 2px; }
+  .taskbar-search { width: clamp(68px, 22vw, 112px); }
+  .taskbar-pin { width: 25px; }
+  .card-content { padding: 27px 21px 23px; }
+  .activate-card .card-content { padding: 31px 22px 26px; }
 }
