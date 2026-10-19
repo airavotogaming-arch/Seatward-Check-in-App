@@ -1527,3 +1527,187 @@ button:focus-visible,select:focus-visible { outline-color:#9ec1fa; }
   .action-tile small { font-size:6px; }
   .food-promo-copy { min-width:120px; }
 }
+
+/* Responsive player shell: preserve the full Windows desktop and scroll the lounge rail independently. */
+.player-shell {
+  --rail: #0b0912;
+  --rail-card: rgba(20, 16, 29, .78);
+  --rail-tile: rgba(27, 21, 40, .78);
+  --rail-line: rgba(188, 157, 255, .16);
+  --rail-text: #f5f2fa;
+  --rail-muted: #a7a0b5;
+  height: 100dvh;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) clamp(320px, 29vw, 420px);
+  overflow: hidden;
+  background: #08070d;
+}
+
+.desktop-area {
+  height: 100dvh;
+  min-height: 0;
+  background: #080b16;
+}
+
+.wallpaper-art {
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  background: #080b16;
+}
+
+.wallpaper-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -20px;
+  background: url("/windows-11-gaming-desktop.webp") center / cover no-repeat;
+  filter: blur(22px) brightness(.48) saturate(1.12);
+  transform: scale(1.04);
+}
+
+.wallpaper-art img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.player-panel {
+  box-sizing: border-box;
+  height: 100dvh;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(178, 139, 255, .62) rgba(255, 255, 255, .035);
+  padding: 14px 15px 16px;
+  gap: 11px;
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(142, 91, 231, .19), transparent 42%),
+    linear-gradient(155deg, rgba(17, 14, 26, .94), rgba(9, 8, 14, .97));
+  border-left: 1px solid rgba(198, 170, 255, .21);
+  box-shadow: -18px 0 46px rgba(4, 3, 9, .34), inset 1px 0 rgba(255, 255, 255, .035);
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+}
+
+.player-panel::-webkit-scrollbar { width: 8px; }
+.player-panel::-webkit-scrollbar-track { background: rgba(255, 255, 255, .025); }
+.player-panel::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 99px;
+  background: rgba(178, 139, 255, .53);
+  background-clip: padding-box;
+}
+.player-panel::-webkit-scrollbar-thumb:hover { background-color: rgba(196, 165, 255, .78); }
+
+.player-panel-head { border-color: var(--rail-line); }
+.panel-brand .brand-dot { color: #bd9aff; }
+.seatward-lockup small,
+.session-clock span,
+.session-clock small { color: #a29ab1; }
+.window-controls button:hover,
+.roster-heading > button,
+.quick-links button:hover,
+.quick-links button:hover > span { color: #c7a8ff; }
+.active-player-card,
+.session-clock,
+.roster-section {
+  background: var(--rail-card);
+  border-color: var(--rail-line);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .045), 0 8px 22px rgba(0, 0, 0, .12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.terminal-chip { border-color: var(--rail-line); }
+.roster-heading { border-color: rgba(188, 157, 255, .12); }
+.roster-row { border-color: rgba(188, 157, 255, .08); }
+.action-tile {
+  background: var(--rail-tile);
+  border-color: rgba(188, 157, 255, .15);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .045);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.action-tile:hover {
+  background: rgba(45, 33, 65, .88);
+  border-color: rgba(194, 161, 255, .38);
+}
+.food-promo {
+  background: linear-gradient(110deg, rgba(27, 20, 40, .96), rgba(17, 14, 25, .86));
+  border-color: rgba(188, 157, 255, .2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .045);
+}
+.food-promo::after {
+  background: linear-gradient(90deg, #171221 0%, rgba(23, 18, 33, .91) 37%, rgba(23, 18, 33, .05) 79%);
+}
+.quick-links-label { color: #c6bdD5; }
+.quick-links button,
+.quick-links button > span { color: #aaa2ba; }
+.action-window {
+  background: #100d17;
+  border-color: rgba(190, 160, 255, .24);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .5), 0 0 48px rgba(126, 77, 204, .12);
+}
+.window-titlebar {
+  background: rgba(21, 17, 31, .95);
+  border-color: rgba(188, 157, 255, .15);
+}
+.window-primary {
+  color: #17111f;
+  background: #c5a7ff;
+  border-color: #c5a7ff;
+}
+.window-primary:hover { background: #d5c1ff; }
+.window-content select:focus-visible,
+button:focus-visible { outline-color: #c5a7ff; }
+
+@media (max-width: 980px) and (min-width: 761px) {
+  .player-shell { grid-template-columns: minmax(0, 1fr) clamp(320px, 34vw, 370px); }
+  .player-panel { padding: 12px 12px 14px; gap: 9px; }
+  .roster-row { min-height: 42px; }
+  .action-tile { min-height: 82px; }
+}
+
+@media (max-width: 760px) {
+  .player-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+  .desktop-area {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1068 / 1024;
+    flex: none;
+  }
+  .player-panel {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 15px clamp(14px, 4vw, 24px) 20px;
+    border-left: 0;
+    border-top: 1px solid rgba(198, 170, 255, .21);
+  }
+}
+
+@media (max-width: 420px) {
+  .player-panel { padding: 13px 12px 18px; }
+  .session-summary { gap: 7px; }
+  .active-player-card { padding: 7px; gap: 8px; }
+  .active-player-card > img { width: 31px; height: 31px; }
+  .session-clock { width: 70px; flex-basis: 70px; }
+  .roster-section { padding: 9px; }
+  .roster-row { min-height: 42px; }
+  .action-tile { min-height: 72px; padding: 7px; grid-template-columns: 21px minmax(0, 1fr); }
+  .action-tile strong { font-size: 10px; }
+  .action-tile small { font-size: 7.5px; }
+  .food-promo-copy { min-width: 120px; }
+}
