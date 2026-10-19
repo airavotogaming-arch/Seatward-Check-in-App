@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ReactNode } from 'react';
+import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
@@ -34,6 +34,7 @@ function SessionPage() {
   const [pin, setPin] = useState('');
   const [errors, setErrors] = useState<{ identifier?: string; pin?: string }>({});
   const [message, setMessage] = useState('');
+  const [, setLocation] = useLocation();
 
   function changeMode(next: 'member' | 'voucher') {
     setMode(next);
@@ -54,7 +55,7 @@ function SessionPage() {
     setErrors(nextErrors);
     setMessage('');
     if (Object.keys(nextErrors).length === 0) {
-      setMessage('Details are ready. This preview does not connect to venue accounts.');
+      setLocation(`/player?player=${encodeURIComponent(identifier.trim())}&mode=${mode}`);
     }
   }
 
@@ -138,6 +139,131 @@ function SessionPage() {
   );
 }
 
+type PlayerAction = 'games' | 'food' | 'staff' | 'terminal' | 'promo' | null;
+
+function PlayerPage() {
+  const [, setLocation] = useLocation();
+  const params = new URLSearchParams(window.location.search);
+  const player = params.get('player') || 'Guest player';
+  const [seconds, setSeconds] = useState(53 * 60 + 18);
+  const [terminal, setTerminal] = useState('PC-14');
+  const [selection, setSelection] = useState('PC-08');
+  const [action, setAction] = useState<PlayerAction>(null);
+  const [notice, setNotice] = useState('');
+  const [order, setOrder] = useState<string[]>([]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setSeconds((remaining) => Math.max(0, remaining - 1)), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const clock = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+  const dismiss = () => { setAction(null); setNotice(''); };
+  const menu = [
+    { name: 'District fries', detail: 'Crisp shoestring fries · demo item', price: '$4.50' },
+    { name: 'Midnight cola', detail: 'Chilled glass bottle · demo item', price: '$3.00' },
+    { name: 'Spicy chicken wrap', detail: 'Grilled, house sauce · demo item', price: '$8.25' },
+  ];
+
+  return (
+    <main className="player-shell">
+      <section className="desktop-area" aria-label="Player desktop">
+        <div className="wallpaper-art" aria-hidden="true">
+          <svg viewBox="0 0 1200 850" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <defs>
+              <linearGradient id="ribbon-blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#59d2ff" /><stop offset=".32" stopColor="#238de8" /><stop offset=".66" stopColor="#1559c4" /><stop offset="1" stopColor="#72cfff" /></linearGradient>
+              <linearGradient id="ribbon-light" x1="0" y1="0" x2="1" y2=".7"><stop offset="0" stopColor="#a6ebff" stopOpacity=".86" /><stop offset=".5" stopColor="#54b9f7" stopOpacity=".5" /><stop offset="1" stopColor="#1f70dd" stopOpacity=".08" /></linearGradient>
+              <linearGradient id="ribbon-shadow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#083b98" stopOpacity=".08" /><stop offset=".55" stopColor="#071b67" stopOpacity=".74" /><stop offset="1" stopColor="#073b96" stopOpacity=".12" /></linearGradient>
+              <radialGradient id="wallpaper-blue"><stop stopColor="#2478d4" /><stop offset="1" stopColor="#073778" /></radialGradient>
+            </defs>
+            <rect width="1200" height="850" fill="url(#wallpaper-blue)" />
+            <path d="M 270 -100 C 370 70 520 130 740 150 C 1010 176 1170 305 1170 445 C 1170 584 1018 676 820 660 C 610 644 502 734 500 930" fill="none" stroke="url(#ribbon-blue)" strokeWidth="168" strokeLinecap="round" />
+            <path d="M 270 -100 C 370 70 520 130 740 150 C 1010 176 1170 305 1170 445 C 1170 584 1018 676 820 660 C 610 644 502 734 500 930" fill="none" stroke="url(#ribbon-light)" strokeWidth="70" strokeLinecap="round" />
+            <path d="M 600 -80 C 535 118 690 250 907 317 C 1086 373 1115 479 1005 565 C 880 662 678 561 494 536 C 300 509 210 603 188 850" fill="none" stroke="url(#ribbon-shadow)" strokeWidth="122" strokeLinecap="round" />
+            <path d="M -90 378 C 123 256 360 288 544 418 C 710 536 824 572 1030 456 C 1175 374 1267 349 1348 370" fill="none" stroke="url(#ribbon-light)" strokeWidth="42" strokeLinecap="round" opacity=".48" />
+          </svg>
+        </div>
+        <div className="desktop-topline"><span className="desktop-seatward"><span className="seatward-mini"><i /><i /><i /><i /></span> Seatward preview</span><span className="desktop-demo-tag">LOCAL DEMO</span></div>
+        <nav className="desktop-icons" aria-label="Desktop shortcuts">
+          <button type="button" className="desktop-shortcut" onClick={() => setAction('games')} data-testid="button-games">
+            <span className="desktop-app-icon icon-games" aria-hidden="true"><i /></span><span>Games</span>
+          </button>
+          <button type="button" className="desktop-shortcut" onClick={() => setAction('food')} data-testid="button-order-food">
+            <span className="desktop-app-icon icon-food" aria-hidden="true"><i /></span><span>Order food</span>
+          </button>
+          <button type="button" className="desktop-shortcut" onClick={() => { setAction('staff'); setNotice('Demo only: a staff call has not been sent. Please speak to the venue team for real assistance.'); }} data-testid="button-call-staff">
+            <span className="desktop-app-icon icon-help" aria-hidden="true"><i /></span><span>Call staff</span>
+          </button>
+          <button type="button" className="desktop-shortcut" onClick={() => setAction('terminal')} data-testid="button-switch-terminal">
+            <span className="desktop-app-icon icon-terminal" aria-hidden="true"><i /></span><span>This PC</span>
+          </button>
+        </nav>
+        <div className="desktop-taskbar">
+          <div className="taskbar-dock" aria-label="Desktop taskbar">
+            <span className="taskbar-start" aria-label="Start menu"><i /><i /><i /><i /></span>
+            <span className="taskbar-search"><i aria-hidden="true" /> Search</span>
+            <span className="taskbar-pin pin-files" aria-label="Files"><i /></span>
+            <span className="taskbar-pin pin-browser" aria-label="Browser"><i /></span>
+            <span className="taskbar-pin pin-store" aria-label="Apps"><i /></span>
+            <span className="taskbar-pin pin-seatward" aria-label="Seatward"><i /><i /><i /><i /></span>
+          </div>
+          <div className="taskbar-clock"><strong>09:41</strong><span>Wednesday, 21 May</span></div>
+        </div>
+      </section>
+
+      <aside className="player-panel" aria-label="Player session panel">
+        <header className="player-panel-head">
+          <Brand className="panel-brand" />
+          <span className="live-indicator"><i /> SESSION LIVE</span>
+        </header>
+        <section className="session-status" aria-label="Session status">
+          <div className="status-label">REMAINING SESSION</div>
+          <div className="countdown" role="timer" aria-label={`${Math.floor(seconds / 60)} minutes ${seconds % 60} seconds remaining`} data-testid="status-countdown">{clock}</div>
+          <div className="session-progress"><i style={{ transform: `scaleX(${seconds / (53 * 60 + 18)})` }} /></div>
+          <p className="session-caption">Preview session · time updates locally</p>
+        </section>
+        <section className="player-identity">
+          <span className="identity-label">ACTIVE PLAYER</span>
+          <strong data-testid="text-active-player">{player}</strong>
+          <span className="identity-terminal">TERMINAL <b data-testid="status-active-terminal">{terminal}</b></span>
+        </section>
+
+        <section className="quick-actions">
+          <div className="section-heading"><span>QUICK ACCESS</span><span className="small-count">04</span></div>
+          <button type="button" className="panel-action" onClick={() => setAction('games')} data-testid="panel-action-games"><span className="action-mark">01</span><span>Browse games</span><b aria-hidden="true">↗</b></button>
+          <button type="button" className="panel-action" onClick={() => setAction('food')} data-testid="panel-action-food"><span className="action-mark">02</span><span>Order food</span><b aria-hidden="true">↗</b></button>
+          <button type="button" className="panel-action" onClick={() => { setAction('staff'); setNotice('Demo only: a staff call has not been sent. Please speak to the venue team for real assistance.'); }} data-testid="panel-action-staff"><span className="action-mark">03</span><span>Call staff</span><b aria-hidden="true">↗</b></button>
+          <button type="button" className="panel-action" onClick={() => setAction('terminal')} data-testid="panel-action-terminal"><span className="action-mark">04</span><span>Switch terminal</span><b aria-hidden="true">↗</b></button>
+        </section>
+
+        <section className="promo-card" aria-labelledby="promo-title">
+          <div className="promo-art" aria-hidden="true"><span>ND</span><i /><b /></div>
+          <div className="promo-copy"><span className="promo-kicker">THIS WEEK · PROMOTION</span><h2 id="promo-title">Night tournament</h2><p>Valorant brackets begin at 9 PM. Build your squad.</p>
+            <button type="button" className="promo-cta" onClick={() => { setAction('promo'); setNotice('Demo interest noted locally. No registration was submitted.'); }} data-testid="button-promo-cta">View tournament details <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+        <div className="player-footer">
+          <span>LOCAL-ONLY DEMO · NO VENUE SERVICES</span>
+          <button type="button" className="end-session" onClick={() => setLocation('/')} data-testid="button-end-session">End demo session <span aria-hidden="true">↗</span></button>
+        </div>
+      </aside>
+
+      {action && <div className="player-overlay" onMouseDown={(event) => { if (event.target === event.currentTarget) dismiss(); }}>
+        <section className="action-window" role="dialog" aria-modal="true" aria-labelledby="action-title" data-testid={`dialog-${action}`}>
+          <header className="window-titlebar"><div><span className="window-mark"><i /><i /><i /><i /></span><span>Seatward · {action === 'food' ? 'Food menu' : action === 'terminal' ? 'Terminal settings' : action === 'staff' ? 'Help desk' : action === 'promo' ? 'Tournament details' : 'Game library'}</span></div><button type="button" onClick={dismiss} aria-label="Close window" data-testid="button-close-dialog">×</button></header>
+          <div className="window-content">
+            {action === 'games' && <><span className="eyebrow">AVAILABLE IN THIS DEMO</span><h2 id="action-title">Game library</h2><p className="window-intro">A local launcher preview. Selecting a game will not launch software on this device.</p><div className="game-list">{[['VALORANT','Tactical · 5v5'],['Counter-Strike 2','Competitive · 5v5'],['Apex Legends','Squad · Battle royale']].map(([name, kind], index) => <div className="game-row" key={name}><span className="game-number">0{index + 1}</span><div><strong>{name}</strong><small>{kind}</small></div><span className="demo-label">DEMO LIST</span></div>)}</div><p className="inline-confirm" role="status">Games are listed for preview only; no game has been launched.</p></>}
+            {action === 'food' && <><span className="eyebrow">DEMO MENU · NO REAL ORDER</span><h2 id="action-title">A little fuel.</h2><p className="window-intro">Add items to a sample order. Nothing will be sent to the venue.</p><div className="food-list">{menu.map((item) => <div className="food-row" key={item.name}><div><strong>{item.name}</strong><small>{item.detail}</small></div><div className="food-buy"><b>{item.price}</b><button type="button" onClick={() => setOrder((items) => [...items, item.name])} data-testid={`button-add-${item.name.toLowerCase().replaceAll(' ', '-')}`}>Add</button></div></div>)}</div><div className="sample-order"><strong>Demo order <span>{order.length} {order.length === 1 ? 'item' : 'items'}</span></strong>{order.length ? <p role="status" data-testid="status-demo-order">{order.join(' · ')}</p> : <p>No items yet. Add one to see it here.</p>}<small>Local sample only · not submitted</small></div></>}
+            {action === 'staff' && <><span className="eyebrow">HELP DESK · PREVIEW</span><h2 id="action-title">Need a hand?</h2><p className="window-intro">This control cannot notify venue staff. For real assistance, speak with the Neon District team on site.</p><div className="confirmation-box" role="status" data-testid="status-staff-demo"><span className="confirmation-symbol">i</span><div><strong>Local demo confirmation</strong><p>{notice || 'No staff notification has been sent.'}</p></div></div><button className="window-primary" type="button" onClick={() => setNotice('Thanks for checking in. This confirmation exists only in this preview; no staff member was contacted.')} data-testid="button-confirm-staff">Show demo confirmation</button></>}
+            {action === 'terminal' && <><span className="eyebrow">SESSION CONTROLS · LOCAL ONLY</span><h2 id="action-title">Choose a terminal</h2><p className="window-intro">Preview a terminal change. This does not provision or move a real session.</p><label className="terminal-select-label" htmlFor="terminal-choice">AVAILABLE DEMO TERMINALS</label><select id="terminal-choice" value={selection} onChange={(event) => setSelection(event.target.value)} data-testid="select-terminal"><option>PC-08</option><option>PC-11</option><option>PC-14</option><option>PC-22</option></select><button className="window-primary" type="button" onClick={() => { setTerminal(selection); setNotice(`Demo terminal set to ${selection}. No hardware or session was changed.`); }} data-testid="button-apply-terminal">Apply demo terminal</button>{notice && <p className="inline-confirm" role="status" data-testid="status-terminal-demo">{notice}</p>}</>}
+            {action === 'promo' && <><span className="eyebrow">NEON DISTRICT · THIS WEEK</span><h2 id="action-title">Night tournament</h2><p className="window-intro">The lights go down at 9 PM. Valorant brackets are open to teams of five, with a place for solo players looking to join a squad.</p><div className="promo-detail"><span>STARTS</span><strong>Tonight · 9:00 PM</strong><span>FORMAT</span><strong>5v5 · Double elimination</strong><span>ENTRY</span><strong>Ask at the venue desk</strong></div><div className="confirmation-box" role="status" data-testid="status-promo-demo"><span className="confirmation-symbol">i</span><div><strong>Demo interest noted</strong><p>{notice || 'This CTA is local-only. No registration was submitted.'}</p></div></div></>}
+          </div>
+        </section>
+      </div>}
+    </main>
+  );
+}
+
 function ActivationPage() {
   const [code, setCode] = useState('');
   const [error, setError] = useState('');
@@ -217,6 +343,7 @@ function Router() {
       <Switch>
         <Route path="/" component={SessionPage} />
         <Route path="/activate" component={ActivationPage} />
+        <Route path="/player" component={PlayerPage} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>

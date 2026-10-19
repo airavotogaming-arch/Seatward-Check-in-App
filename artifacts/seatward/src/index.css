@@ -721,3 +721,256 @@ button:focus-visible, input:focus-visible, a:focus-visible {
     inset: -1px;
   }
 }
+
+/* Player space: a Seatward control desk over a custom midnight desktop. */
+.player-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 370px;
+  color: #211e18;
+  background: #e9e3d5;
+}
+.desktop-area {
+  min-height: 100dvh;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 4.4% 76px;
+  color: #f0eadc;
+  background:
+    radial-gradient(ellipse at 73% 39%, rgba(216, 76, 46, .18), transparent 29%),
+    linear-gradient(135deg, #27241f 0%, #171613 58%, #24201c 100%);
+}
+.desktop-area::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  opacity: .12;
+  z-index: -1;
+  background-image: repeating-linear-gradient(0deg, transparent 0 3px, rgba(238,232,215,.08) 4px);
+  mask-image: linear-gradient(to bottom, transparent, #000 35%, transparent);
+}
+.desktop-topline { display:flex; align-items:center; justify-content:space-between; position:relative; z-index:2; }
+.player-brand { color:#f0eadc; font-size:17px; letter-spacing:-.8px; gap:9px; }
+.player-brand .brand-mark { width:17px; height:17px; gap:2px; }
+.player-brand .brand-mark i:last-child { height:8px; }
+.desktop-demo-tag, .eyebrow { font: 8px var(--mono); letter-spacing:1.25px; }
+.desktop-demo-tag { color:rgba(240,234,220,.54); border:1px solid rgba(240,234,220,.2); padding:8px 10px; }
+.wallpaper-art { position:absolute; inset:0; z-index:-1; overflow:hidden; }
+.wallpaper-glow { position:absolute; width:min(56vw,700px); aspect-ratio:1; border-radius:50%; right:2%; top:5%; background:radial-gradient(circle,rgba(192,72,43,.23),rgba(148,73,48,.09) 39%,transparent 70%); }
+.wallpaper-orbit { position:absolute; width:min(50vw,610px); aspect-ratio:1; border:1px solid rgba(219,196,159,.13); border-radius:50%; right:8%; top:10%; transform:rotate(-29deg) scaleY(.65); }
+.orbit-two { width:min(41vw,500px); right:14%; top:15%; border-color:rgba(220,119,78,.25); transform:rotate(28deg) scaleY(.74); }
+.wallpaper-slab { position:absolute; right:13%; top:18%; width:min(32vw,390px); aspect-ratio:1.12; transform:rotate(-34deg) skewY(10deg); border:1px solid rgba(235,210,166,.26); background:linear-gradient(145deg,rgba(201,83,48,.14),rgba(27,25,22,.05) 64%); box-shadow:42px 40px 0 -39px rgba(230,182,130,.43),84px 80px 0 -81px rgba(230,182,130,.32); }
+.desktop-copy { position:relative; z-index:1; margin:auto 0 30px 3%; max-width:600px; }
+.desktop-copy .eyebrow { color:#d47754; }
+.desktop-copy h1 { font-size:clamp(42px,6.2vw,84px); letter-spacing:-.075em; line-height:.94; margin:16px 0 20px; font-weight:700; }
+.desktop-copy h1 em { color:#d8c4a5; font-weight:500; font-family:Georgia,serif; letter-spacing:-.065em; }
+.desktop-copy p { color:rgba(240,234,220,.66); font:11px/1.7 var(--mono); }
+.desktop-copy p strong { color:#f0eadc; }
+.desktop-shortcuts { position:relative; z-index:2; display:flex; gap:9px; align-items:stretch; margin:0 0 0 3%; flex-wrap:wrap; }
+.desktop-shortcut { appearance:none; border:1px solid rgba(236,226,208,.18); background:rgba(236,226,208,.065); color:#eee7d8; cursor:pointer; width:118px; min-height:100px; padding:13px; display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; font:10px var(--mono); text-align:left; transition:background .18s ease, transform .18s ease; }
+.desktop-shortcut:hover { background:rgba(236,226,208,.14); transform:translateY(-2px); }
+.shortcut-icon { position:relative; display:block; width:30px; height:30px; border:1px solid rgba(231,203,160,.5); }
+.shortcut-icon::before,.shortcut-icon::after,.shortcut-icon i { content:""; position:absolute; display:block; }
+.game-icon::before { inset:6px 5px; border:1px solid #db805b; border-radius:7px; transform:rotate(-8deg); }
+.game-icon::after { width:8px;height:2px;background:#e3c49a;left:9px;top:13px; }
+.game-icon i { width:2px;height:8px;background:#e3c49a;left:12px;top:10px; }
+.food-icon::before { width:13px;height:13px; border:1px solid #e3c49a; border-radius:50%; left:7px;top:7px; }
+.food-icon::after { left:22px;top:5px;width:1px;height:18px;background:#db805b; }
+.staff-icon::before { width:14px;height:11px;border:1px solid #e3c49a;left:6px;top:7px;border-radius:2px; }
+.staff-icon::after { width:5px;height:5px;left:9px;top:17px;border-left:1px solid #e3c49a;transform:skewY(-35deg); }
+.terminal-icon::before { inset:6px 4px 9px;border:1px solid #e3c49a; }
+.terminal-icon::after { width:16px;height:1px;background:#db805b;left:6px;bottom:5px; }
+.desktop-taskbar { position:absolute; height:46px; bottom:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:0 4.4%; background:rgba(20,19,17,.88); border-top:1px solid rgba(232,224,207,.13); font:8px var(--mono); letter-spacing:.4px; }
+.taskbar-brand { display:flex; align-items:center; gap:10px; color:rgba(240,234,220,.73); }
+.seatward-mini,.window-mark { width:13px;height:13px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px; }
+.seatward-mini i,.window-mark i { background:#e6dfce; }
+.seatward-mini i:last-child,.window-mark i:last-child { background:#d64a2c; }
+.taskbar-clock { display:flex; gap:13px; color:rgba(240,234,220,.48); }
+.taskbar-clock strong { color:#dbd1bd; font-weight:400; }
+.player-panel { min-height:100dvh; background:#e9e3d5; padding:23px 25px 18px; display:flex; flex-direction:column; border-left:1px solid rgba(40,35,26,.18); }
+.player-panel-head { display:flex; align-items:center; justify-content:space-between; padding-bottom:18px; border-bottom:1px solid var(--rule); }
+.panel-brand { font-size:19px; letter-spacing:-1.1px; gap:8px; }
+.panel-brand .brand-mark { width:19px;height:19px;gap:2px; }
+.panel-brand .brand-mark i:last-child { height:9px; }
+.live-indicator { font:7px var(--mono); letter-spacing:.8px; color:#756c5e; display:flex; align-items:center; gap:6px; }
+.live-indicator i { display:block; width:6px;height:6px;background:#d64a2c;border-radius:50%; }
+.session-status { padding:19px 0 17px; border-bottom:1px solid var(--rule); }
+.status-label,.identity-label,.section-heading,.identity-terminal { font:7px var(--mono); letter-spacing:1px; color:#777164; }
+.countdown { margin-top:8px; color:#201d18; font:500 43px/.95 var(--mono); letter-spacing:-3px; font-variant-numeric:tabular-nums; }
+.session-progress { height:2px; background:#d0c9ba; margin-top:14px; overflow:hidden; }
+.session-progress i { display:block; height:100%; background:#d64a2c; transform-origin:left; transition:transform .7s linear; }
+.session-caption { margin:7px 0 0; color:#837c70; font:8px var(--mono); }
+.player-identity { display:grid; grid-template-columns:1fr auto; gap:7px 10px; padding:15px 0 16px; border-bottom:1px solid var(--rule); }
+.player-identity .identity-label { grid-column:1/-1; }
+.player-identity strong { font-size:15px; letter-spacing:-.4px; overflow-wrap:anywhere; }
+.identity-terminal { align-self:center; white-space:nowrap; font-size:7px; }
+.identity-terminal b { color:#d64a2c; font-weight:500; }
+.quick-actions { padding:16px 0 12px; }
+.section-heading { display:flex; justify-content:space-between; margin-bottom:8px; }
+.small-count { color:#c0b8a9; }
+.panel-action { display:flex; align-items:center; width:100%; min-height:34px; padding:0; background:transparent; border:0; border-bottom:1px solid rgba(40,35,26,.11); text-align:left; cursor:pointer; color:#2c2922; font-size:11px; }
+.panel-action:hover span:nth-child(2) { color:#c5482c; }
+.action-mark { color:#aa9f8d; font:8px var(--mono); width:33px; }
+.panel-action b { margin-left:auto; color:#c5482c; font-size:13px; font-weight:400; }
+.promo-card { display:grid; grid-template-columns:68px 1fr; min-height:115px; background:#28241f; color:#eee8db; overflow:hidden; margin-top:4px; }
+.promo-art { position:relative; background:#bd492d; overflow:hidden; display:grid; place-items:center; color:rgba(245,230,202,.84); }
+.promo-art span { position:relative;z-index:2;font:700 23px var(--mono);letter-spacing:-4px; }
+.promo-art i { position:absolute;width:78px;height:78px;border:1px solid rgba(242,224,187,.42);border-radius:50%;transform:scaleY(.55) rotate(-30deg); }
+.promo-art b { position:absolute;width:48px;height:1px;background:rgba(242,224,187,.6);transform:rotate(-45deg); }
+.promo-copy { padding:12px 12px 11px; }
+.promo-kicker { font:6px var(--mono);letter-spacing:.8px;color:#d5a78d; }
+.promo-copy h2 { font-size:13px;letter-spacing:-.3px;margin:5px 0 3px; }
+.promo-copy p { color:#c3baaa;font:8px/1.5 var(--mono);margin:0 0 8px; }
+.promo-cta { padding:0; border:0; border-bottom:1px solid rgba(214,74,44,.6); background:none; color:#f1a082; font:8px var(--mono); cursor:pointer; text-align:left; }
+.promo-cta span { padding-left:4px; }
+.player-footer { margin-top:auto; padding-top:17px; display:flex; flex-direction:column; gap:10px; color:#92897a; font:6px var(--mono); letter-spacing:.65px; }
+.end-session { width:100%; min-height:34px; border:1px solid #bfb6a5; background:transparent; color:#39352d; cursor:pointer; font:8px var(--mono); letter-spacing:.45px; text-align:left; padding:0 11px; }
+.end-session:hover { border-color:#d64a2c; color:#bd492d; }
+.end-session span { float:right; font-size:12px; }
+.player-overlay { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:20px; background:rgba(17,16,14,.62); backdrop-filter:blur(3px); }
+.action-window { width:min(100%,500px); max-height:min(720px,90dvh); overflow:auto; background:#e9e3d5; border:1px solid rgba(24,22,18,.45); box-shadow:0 20px 70px rgba(0,0,0,.32); animation:window-enter .2s ease both; }
+@keyframes window-enter { from { opacity:0; transform:translateY(8px) scale(.99); } to { opacity:1; transform:translateY(0) scale(1); } }
+.window-titlebar { min-height:39px; display:flex; align-items:center; justify-content:space-between; padding:0 13px; background:#211e19; color:#e9e3d5; font:9px var(--mono); }
+.window-titlebar>div { display:flex; gap:9px; align-items:center; }
+.window-titlebar button { color:#e9e3d5;background:transparent;border:0;width:28px;height:28px;cursor:pointer;font-size:20px;line-height:1; }
+.window-content { padding:30px clamp(20px,6vw,38px) 32px; }
+.window-content .eyebrow { color:#be4b30; }
+.window-content h2 { margin:9px 0 9px; font-size:28px; letter-spacing:-1.5px; }
+.window-intro { margin:0 0 22px; color:#736c5e; font:10px/1.7 var(--mono); max-width:390px; }
+.game-list,.food-list { border-top:1px solid var(--rule); }
+.game-row,.food-row { display:flex; align-items:center; gap:13px; padding:13px 0; border-bottom:1px solid var(--rule); }
+.game-number { color:#bd492d; font:10px var(--mono); }
+.game-row div,.food-row>div:first-child { display:flex; flex:1; flex-direction:column; gap:4px; }
+.game-row strong,.food-row strong { font-size:12px; }
+.game-row small,.food-row small { color:#80796d; font:8px var(--mono); }
+.demo-label { border:1px solid #c9bfae; color:#817869; padding:5px 6px; font:6px var(--mono); letter-spacing:.4px; }
+.inline-confirm { padding:10px 12px; margin:15px 0 0; background:rgba(214,74,44,.08); border-left:2px solid #d64a2c; color:#5f574a; font:9px/1.6 var(--mono); }
+.food-buy { display:flex;align-items:center;gap:10px; }
+.food-buy b { font:10px var(--mono); }
+.food-buy button { background:#211e19;color:#eee8db;border:0;padding:8px 12px;cursor:pointer;font:8px var(--mono); }
+.food-buy button:hover,.window-primary:hover { background:#bd492d; }
+.sample-order { margin-top:16px; border:1px solid #c9c0af; padding:12px; }
+.sample-order>strong { display:flex;justify-content:space-between;font-size:10px; }
+.sample-order>strong span { color:#bd492d;font:9px var(--mono); }
+.sample-order p { font:9px/1.6 var(--mono);color:#635c50;margin:9px 0; }
+.sample-order small { color:#8a8172;font:7px var(--mono); }
+.confirmation-box { display:flex;gap:12px; padding:14px; border:1px solid #c7bdac; background:rgba(255,255,255,.16); }
+.confirmation-symbol { width:20px;height:20px;display:grid;place-items:center;flex:0 0 auto;border:1px solid #bd492d;color:#bd492d;font:11px Georgia,serif; }
+.confirmation-box strong { font-size:11px; }
+.confirmation-box p { color:#746c5e;font:9px/1.6 var(--mono);margin:5px 0 0; }
+.window-primary { width:100%;min-height:39px;margin-top:17px;background:#211e19;color:#eee8db;border:0;cursor:pointer;font:8px var(--mono);letter-spacing:.6px; }
+.terminal-select-label { display:block;color:#777164;font:7px var(--mono);letter-spacing:.9px;margin-bottom:7px; }
+.window-content select { width:100%;height:40px;padding:0 10px;background:#f0eadc;border:1px solid #bdb4a3;color:#29251f;font:10px var(--mono); }
+.promo-detail { display:grid;grid-template-columns:75px 1fr;gap:11px;padding:14px;margin-bottom:15px;background:#28241f;color:#eee8db; }
+.promo-detail span { color:#cf9b80;font:7px var(--mono);letter-spacing:.7px; }
+.promo-detail strong { font-size:10px;font-weight:500; }
+button:focus-visible, select:focus-visible { outline:2px solid #d64a2c; outline-offset:3px; }
+@media (max-width:900px) {
+  .player-shell { grid-template-columns:minmax(0,1fr) 330px; }
+  .player-panel { padding-left:20px;padding-right:20px; }
+  .desktop-area { padding-left:5%;padding-right:5%; }
+  .wallpaper-slab { right:4%; }
+}
+@media (max-width:700px) {
+  .player-shell { grid-template-columns:1fr; }
+  .desktop-area { min-height:520px; min-height:60dvh; padding:22px 6% 70px; }
+  .desktop-copy { margin: auto 0 25px; }
+  .desktop-copy h1 { font-size:clamp(45px,12vw,68px); }
+  .wallpaper-orbit { width:80vw;right:-14%;top:12%; }
+  .orbit-two { width:67vw;right:-7%;top:18%; }
+  .wallpaper-slab { width:50vw;right:8%;top:20%; }
+  .desktop-shortcuts { margin-left:0;gap:7px; }
+  .desktop-shortcut { width:calc(25% - 6px);min-width:70px;min-height:86px;padding:10px 8px;font-size:8px; }
+  .player-panel { min-height:auto;padding:20px 6% 18px;border-left:0; }
+  .player-footer { margin-top:18px; }
+  .promo-card { grid-template-columns:78px 1fr; }
+}
+@media (max-width:390px) {
+  .desktop-demo-tag { font-size:6px; }
+  .desktop-shortcut { min-width:calc(50% - 5px);flex:1; }
+  .taskbar-clock { flex-direction:column;gap:2px; }
+  .countdown { font-size:39px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .action-window { animation:none; }
+  .desktop-shortcut,.session-progress i { transition:none; }
+}
+
+/* The desktop is deliberately OS-like, while remaining clearly a Seatward demo. */
+.desktop-area {
+  min-height:100dvh;
+  padding:20px 25px 80px;
+  background:#0750a6;
+}
+.desktop-area::after { display:none; }
+.wallpaper-art { inset:0; z-index:-1; background:#0750a6; }
+.wallpaper-art svg { display:block; width:100%; height:100%; }
+.desktop-topline { min-height:25px; }
+.desktop-seatward { display:flex;align-items:center;gap:8px;color:rgba(246,249,255,.82);font:9px var(--mono);letter-spacing:.3px;text-shadow:0 1px 5px rgba(0,22,65,.3); }
+.desktop-seatward .seatward-mini { width:12px;height:12px;gap:1px; }
+.desktop-seatward .seatward-mini i { background:#f4f1e9; }
+.desktop-seatward .seatward-mini i:last-child { background:#ee7555; }
+.desktop-demo-tag { background:rgba(7,35,77,.2);border-color:rgba(239,247,255,.25);color:rgba(245,249,255,.72);font-size:7px; }
+.desktop-icons { display:flex;flex-direction:column;align-items:flex-start;gap:5px;position:relative;z-index:2;margin-top:16px;width:100px; }
+.desktop-shortcut { appearance:none;width:88px;min-height:80px;flex:none;display:flex;align-items:center;justify-content:flex-start;gap:7px;flex-direction:column;padding:7px 5px 6px;border:1px solid transparent;background:transparent;color:#fff;text-align:center;font:9px/1.2 'DM Sans',sans-serif;text-shadow:0 1px 3px rgba(0,20,60,.75);cursor:pointer;transition:background .15s ease,border-color .15s ease; }
+.desktop-shortcut:hover,.desktop-shortcut:focus-visible { background:rgba(207,231,255,.19);border-color:rgba(226,242,255,.28);transform:none; }
+.desktop-app-icon { position:relative;width:39px;height:39px;display:block;filter:drop-shadow(0 2px 4px rgba(0,27,73,.37)); }
+.desktop-app-icon::before,.desktop-app-icon::after,.desktop-app-icon i { content:"";position:absolute;display:block; }
+.icon-games::before { inset:4px 3px 6px;border-radius:11px;background:linear-gradient(145deg,#fa7354,#bd2739);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45); }
+.icon-games::after { width:17px;height:6px;border-top:2px solid #fff;border-bottom:2px solid #fff;left:11px;top:17px; }
+.icon-games i { height:12px;width:12px;border-right:2px solid #fff;border-left:2px solid #fff;left:14px;top:14px; }
+.icon-food::before { inset:4px;border-radius:10px;background:linear-gradient(145deg,#fff0ca,#ffb459); }
+.icon-food::after { width:19px;height:19px;left:10px;top:10px;border-radius:50%;border:2px solid #bc6534;box-shadow:inset 0 0 0 3px #fff8e7; }
+.icon-food i { width:2px;height:25px;top:7px;right:5px;background:#f5f2ec;box-shadow:-3px 0 0 -0.3px #f5f2ec; }
+.icon-help::before { inset:3px;border-radius:50%;background:linear-gradient(145deg,#63d5db,#087db8); }
+.icon-help::after { content:"?";inset:4px;color:#fff;text-align:center;font:700 25px/30px Georgia,serif; }
+.icon-terminal::before { left:3px;top:5px;width:32px;height:23px;border-radius:3px;background:linear-gradient(145deg,#f8f5e7,#c8d5df);border:1px solid rgba(255,255,255,.9); }
+.icon-terminal::after { left:8px;top:10px;width:21px;height:12px;background:linear-gradient(145deg,#54c1e5,#2986cf); }
+.icon-terminal i { left:15px;top:28px;width:10px;height:4px;background:#e8edf1;border-bottom:2px solid #879bab; }
+.desktop-taskbar { height:auto;min-height:48px;bottom:11px;left:50%;right:auto;transform:translateX(-50%);width:min(540px,calc(100% - 30px));padding:0;justify-content:center;gap:12px;background:transparent;border:0;letter-spacing:normal; }
+.taskbar-dock { height:48px;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 10px;border:1px solid rgba(245,250,255,.36);border-radius:13px;background:rgba(240,247,255,.72);box-shadow:0 4px 20px rgba(3,29,69,.25);backdrop-filter:blur(18px); }
+.taskbar-start { width:32px;height:32px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px;padding:7px; }
+.taskbar-start i { display:block;background:#0878d4; }
+.taskbar-search { height:31px;width:133px;display:flex;align-items:center;gap:8px;padding:0 11px;border-radius:7px;background:rgba(255,255,255,.7);color:#546375;font:10px 'DM Sans',sans-serif; }
+.taskbar-search i { width:12px;height:12px;border:1.7px solid #52677b;border-radius:50%;position:relative; }
+.taskbar-search i::after { content:"";position:absolute;width:5px;height:1.5px;right:-4px;bottom:-2px;background:#52677b;transform:rotate(45deg); }
+.taskbar-pin { width:31px;height:32px;display:grid;place-items:center; }
+.taskbar-pin i { display:block;position:relative;width:19px;height:19px; }
+.pin-files i { background:linear-gradient(#f4c54f 0 34%,#efaa36 35%);border-radius:3px; }
+.pin-browser i { border-radius:50%;background:conic-gradient(#36a8ed 0 36%,#21ad75 36% 69%,#f2c644 69% 81%,#3285d3 81%); }
+.pin-store i { border:2px solid #4288d3;border-radius:3px;background:linear-gradient(135deg,#7ad9fa,#ded9f7); }
+.pin-store i::before { content:"";position:absolute;left:4px;right:4px;top:-4px;height:7px;border:1.5px solid #4288d3;border-bottom:0;border-radius:5px 5px 0 0; }
+.pin-seatward { border-left:1px solid rgba(43,67,93,.18);padding-left:5px; }
+.pin-seatward i { width:6px;height:6px;background:#29251f; }
+.pin-seatward i:last-child { background:#d64a2c;clip-path:polygon(0 0,100% 50%,0 100%); }
+.taskbar-clock { position:absolute;right:0;height:42px;min-width:120px;padding:4px 10px;border:1px solid rgba(245,250,255,.3);border-radius:9px;background:rgba(240,247,255,.64);backdrop-filter:blur(16px);display:flex;flex-direction:column;justify-content:center;align-items:flex-end;gap:2px;color:#233448;font:9px 'DM Sans',sans-serif; }
+.taskbar-clock strong { color:#233448;font:10px var(--mono);letter-spacing:0; }
+.taskbar-clock span { color:#3e5268;font:8px 'DM Sans',sans-serif; }
+@media (max-width:900px) {
+  .desktop-area { padding-left:20px;padding-right:20px; }
+  .desktop-taskbar { width:calc(100% - 24px); }
+  .taskbar-clock { position:relative;right:auto;flex:0 0 112px; }
+  .taskbar-dock { margin:0 auto; }
+}
+@media (max-width:700px) {
+  .desktop-area { min-height:60dvh;padding:16px 15px 77px; }
+  .desktop-icons { margin-top:11px; }
+  .desktop-shortcut { width:76px;min-height:75px; }
+  .desktop-taskbar { width:calc(100% - 16px);bottom:8px;gap:5px; }
+  .taskbar-dock { height:45px;gap:3px;padding:0 5px;border-radius:11px; }
+  .taskbar-search { width:clamp(76px,25vw,125px); }
+  .taskbar-start { width:28px;padding:7px; }
+  .taskbar-pin { width:27px; }
+  .taskbar-clock { flex:0 0 93px;min-width:0;padding:4px 6px; }
+}
+@media (max-width:370px) {
+  .taskbar-clock { display:none; }
+  .desktop-taskbar { justify-content:center; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .desktop-shortcut { transition:none; }
+}
