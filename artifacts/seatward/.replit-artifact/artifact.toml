@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Seatward Check-in"
+description = "A focused venue check-in experience where members can start a session, redeem a voucher, or activate a terminal."
+version = "1.0.0"
+id = "artifacts/seatward"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20737
+
+[services.development]
+run = "pnpm --filter @workspace/seatward run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/seatward", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/seatward/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20737"
+BASE_PATH = "/"
